@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-strict-di>
+<head>
+  <base href="/">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  <title data-ng-bind="indexTitle"></title>
+  <style>
+    /* This helps the ng-show/ng-hide animations start at the right place. */
+    /* Since Angular has this but needs to load, this gives us the class early. */
+    .ng-hide {
+      display: none !important;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="/<%= css %>" media="all"/>
+</head>
+<body>
+
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div data-custom-page>
+  <div id="layout" data-ng-include="'layout/shell.html'"></div>
+</div>
+
+<script type="text/javascript" src="/<%= js %>"></script>
+
+</body>
+</html>

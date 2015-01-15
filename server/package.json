@@ -1,0 +1,19 @@
+{
+  "name": "ActionFinish",
+  "title": "ActionFinish Web App",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Sergey Kosik",
+    "company": "ActionFinish Limited"
+  },
+  "dependencies": {
+    "express": "^3.5.0",
+    "lodash": "~2.4.1",
+    "ejs": "^1.0.0"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

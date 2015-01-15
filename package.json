@@ -1,0 +1,24 @@
+{
+  "name": "lineman-angular-boilerplate",
+  "title": "lineman-angular-boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Havrl"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "grunt": "^0.4.5",
+    "grunt-replace": "^0.8.0",
+    "grunt-strip-code": "^0.1.2",
+    "jasmine-given": "~2.1.0",
+    "lineman": ">= 0.34.3",
+    "lineman-angular": ">= 0.3.0",
+    "lineman-less": ">= 0.1.0",
+    "protractor": "^0.23.1"
+  },
+  "scripts": {
+    "start": "lineman run",
+    "test": "lineman spec-ci"
+  }
+}

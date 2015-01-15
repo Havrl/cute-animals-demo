@@ -1,0 +1,16 @@
+{
+  "name": "lineman-angular-boilerplate",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "*",
+    "jquery": "~2.1.0",
+    "angular-sanitize": "*",
+    "angular-animate": "*",
+    "angular-route": "*",
+    "ngstorage": "*",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "*"
+  }
+}

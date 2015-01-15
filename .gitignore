@@ -1,0 +1,12 @@
+.DS_Store
+.elasticbeanstalk/
+.idea
+.grunt
+
+/node_modules
+/vendor/bower
+/docs
+/dist
+/generated
+/app/js/env.config.js
+

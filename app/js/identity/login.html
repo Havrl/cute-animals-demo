@@ -1,0 +1,71 @@
+<div class="page-custom">
+  <div class="form-container">
+
+    <div class="page-custom-header">
+      <div class="text-center">
+        <span class="icon-logo logo"></span>
+        <h1>Sign in</h1>
+      </div>
+    </div>
+
+    <div class="link-main-site text-center">
+      <a href="http://actionfinish.com">Back to main site</a>
+    </div>
+
+    <div class="page-custom-body">
+
+      <div id="alerts-container"></div>
+
+      <form name="vm.loginForm" class="form-validation" ng-submit="vm.login()" role="form" novalidate>
+        <div class="form-group with-block el-margin-btm">
+          <label for="email">Username or Email</label>
+          <input type="text" name="email" id="email" maxlength="100"
+                 class="form-control input-lg"
+                 ng-model="vm.credentials.email" required autofocus>
+          <span class="has-error-arrow"
+                ng-show="submitted && vm.loginForm.email.$invalid">
+            <div class="error-arrow-right"></div>
+            <p class="help-block"
+               ng-show="vm.loginForm.email.$error.required">Enter your username or email</p>
+          </span>
+        </div>
+        <div class="form-group with-block el-margin-btm">
+          <label for="pass">Password</label>
+          <input type="password" id="pass" name="pass" maxlength="50"
+                 class="form-control input-lg" ng-model="vm.credentials.password"
+                 required>
+          <span class="has-error-arrow"
+                ng-show="submitted && vm.loginForm.pass.$invalid">
+            <div class="error-arrow-right"></div>
+            <p class="help-block"
+             ng-show="vm.loginForm.pass.$error.required">Enter your password</p>
+          </span>
+        </div>
+
+        <button id="login-btn" class="btn btn-danger btn-lg btn-block af-btn"
+                ng-disabled="vm.loading" ng-click="submitted=true" type="submit">Sign in
+        </button>
+
+        <div class="form-group forgot-link">
+          <a href="/forgot">Forgot password?</a>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="page-custom-alt text-center">
+      <p>Don't have an account?</p>
+      <h4><a ng-href="/sign-up">Create an account</a></h4>
+    </div>
+
+
+  </div>
+  <div class="page-custom-footer">
+    <p class="text-center alt-link">
+      <span><a href="http://actionfinish.com/terms/" target="_blank">Terms of Service</a></span> |
+      <span><a href="http://actionfinish.com/privacy/" target="_blank">Privacy Policy</a></span> |
+      <i class="icon-copyright"></i> ActionFinish Limited 2015
+    </p>
+  </div>
+</div>
+

@@ -1,0 +1,114 @@
+<div class="page-custom">
+  <div class="form-container">
+
+    <div class="page-custom-header">
+      <div class="text-center">
+        <span class="icon-logo logo"></span>
+        <h1>Create Account</h1>
+      </div>
+    </div>
+
+    <div class="link-main-site text-center">
+      <a href="http://actionfinish.com">Back to main site</a>
+    </div>
+
+    <div class="page-custom-body">
+
+      <div id="alerts-container"></div>
+
+      <form name="vm.registerForm" role="form" class="form-validation"
+            ng-submit="vm.register()" novalidate>
+        <div class="form-group with-block el-margin-btm">
+          <label for="fullname">Your Full Name</label>
+          <input type="text" id="fullname" name="fullname" ng-maxlength="50"
+                 class="form-control input-lg" ng-model="vm.credentials.full_name"
+                 in-focus required autofocus>
+          <span class="has-error-arrow"
+                ng-show="(submitted && vm.registerForm.fullname.$invalid) ||
+                (vm.registerForm.fullname.$dirty && vm.registerForm.fullname.$invalid && !vm.registerForm.fullname.$focused)">
+            <div class="error-arrow-right"></div>
+            <p class="help-block"
+               ng-show="vm.registerForm.fullname.$error.required">Enter your full name</p>
+            <p class="help-block"
+               ng-show="vm.registerForm.fullname.$error.maxlength">Full name is too long (50 characters limit)</p>
+          </span>
+        </div>
+        <div class="form-group with-block el-margin-btm">
+          <label for="companyName">Company or Organization</label>
+          <input type="text" id="companyName" name="companyName"
+                 ng-maxlength="50" class="form-control input-lg"
+                 ng-model="vm.credentials.name" in-focus required>
+          <span class="has-error-arrow"
+                ng-show="(submitted && vm.registerForm.companyName.$invalid) ||
+                (vm.registerForm.companyName.$dirty && vm.registerForm.companyName.$invalid && !vm.registerForm.companyName.$focused)">
+            <div class="error-arrow-right"></div>
+            <p class="help-block"
+               ng-show="vm.registerForm.companyName.$error.maxlength">Company name is too long (50 characters limit)</p>
+          <p class="help-block"
+             ng-show="vm.registerForm.companyName.$error.required">Enter company name</p>
+          </span>
+        </div>
+        <div class="form-group with-block el-margin-btm">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" ng-maxlength="50"
+                 ng-model="vm.credentials.email" class="form-control input-lg"
+                 unique-check="email" in-focus required>
+          <span class="has-error-arrow"
+                ng-show="(submitted && vm.registerForm.email.$invalid) ||
+                (vm.registerForm.email.$dirty && vm.registerForm.email.$invalid && !vm.registerForm.email.$focused)">
+            <div class="error-arrow-right"></div>
+          <p class="help-block" ng-show="vm.registerForm.email.$error.maxlength">Email is too long (50 characters limit)</p>
+          <p class="help-block"
+             ng-show="vm.registerForm.email.$error.required">Enter a valid email</p>
+          <p class="help-block" ng-show="vm.registerForm.email.$error.email">Email is not valid</p>
+          <p class="help-block" ng-show="vm.registerForm.email.$error.unique">Email already in use</p>
+          </span>
+        </div>
+        <div class="form-group with-block el-margin-btm">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password"
+                 ng-maxlength="50" ng-minlength="8" class="form-control input-lg"
+                 ng-model="vm.credentials.password" in-focus required>
+
+          <span class="has-error-arrow"
+                ng-show="(submitted && vm.registerForm.password.$invalid) ||
+                (vm.registerForm.password.$dirty && vm.registerForm.password.$invalid && !vm.registerForm.password.$focused)">
+            <div class="error-arrow-right"></div>
+            <p class="help-block"
+               ng-show="vm.registerForm.password.$error.maxlength">Password is too long (50 characters limit) </p>
+            <p class="help-block"
+               ng-show="vm.registerForm.password.$error.minlength">Enter a longer password (at least 8 characters) </p>
+          <p class="help-block"
+             ng-show="vm.registerForm.password.$error.required">Enter a password</p>
+          </span>
+        </div>
+        <div class="form-group">
+          <p>By clicking Create Account, I agree to the <a href="http://actionfinish.com/terms/" target="_blank">
+            Terms of Service</a> and
+            <a href="http://actionfinish.com/privacy/" target="_blank">Privacy Policy</a>.</p>
+        </div>
+        <button class="btn btn-danger btn-lg btn-block af-btn" type="submit" ng-disabled="vm.loading"
+                ng-click="submitted=true">
+          Start my Free 30 Day Trial
+        </button>
+      </form>
+    </div>
+
+    <div class="page-custom-alt text-center">
+      <p>Already have an account?</p>
+      <h4><a ng-href="/login">Sign in</a></h4>
+    </div>
+
+  </div>
+
+  <div class="page-custom-footer">
+    <p class="text-center alt-link">
+      <span><a href="http://actionfinish.com/terms/" target="_blank">Terms of Service</a></span> |
+      <span><a href="http://actionfinish.com/privacy/" target="_blank">Privacy Policy</a></span> |
+      <i class="icon-copyright"></i> ActionFinish Limited 2015
+    </p>
+  </div>
+</div>
+
+
+
