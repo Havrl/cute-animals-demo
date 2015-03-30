@@ -12,7 +12,7 @@
     "grunt-replace": "^0.8.0",
     "grunt-strip-code": "^0.1.2",
     "jasmine-given": "~2.1.0",
-    "lineman": ">= 0.34.3",
+    "lineman": ">= 0.35.1",
     "lineman-angular": ">= 0.3.0",
     "lineman-less": ">= 0.1.0",
     "protractor": "^0.23.1"
