@@ -1,0 +1,73 @@
+<h2 class="text-center">Animal Animations</h2>
+
+<form class="form-inline search-form" ng-submit="vm.loadItems()">
+    <div class="row search-form-wrapper">
+        <div class="form-group pull-left">
+            <input type="text" class="form-control" id="searchInput" ng-model="vm.searchInput" style="width: 250px"
+                   placeholder="Enter keywords, like: funny, cute...">
+        </div>
+        <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+
+        <div class="btn-group pull-right">
+            <label class="btn btn-primary" ng-model="vm.searchType"
+                   uib-btn-radio="'kittens'">Kittens</label>
+            <label class="btn btn-primary" ng-model="vm.searchType"
+                   uib-btn-radio="'puppies'">Puppies</label>
+        </div>
+    </div>
+</form>
+
+<p ng-if="vm.items.length > 0" class="text-info pull-right">{{ vm.totalCount }} images found
+    with <strong><i>{{ vm.searchQuery }}</i></strong> keywords</p>
+<table class="table" ng-if="vm.items.length > 0">
+    <thead ng-if="vm.items.length > 0">
+    <tr>
+        <th>Animation</th>
+        <th>Name</th>
+        <th>Source</th>
+    </tr>
+    </thead>
+    <tr class="row-item" ng-repeat="item in vm.items" ng-click="vm.showImage(item)">
+
+        <td class="image-cell">
+            <a href="#">
+                <img src="{{ item.images.fixed_height_downsampled.url }}" width="100px">
+            </a>
+        </td>
+        <td>{{item.slug}}</td>
+        <td><strong>{{item.source_tld}}</strong></td>
+    </tr>
+</table>
+
+<div class="no-items text-center" ng-if="vm.items.length === 0 && !vm.loading">
+    <h4>
+        Please toggle either "Kittens" or "Puppies" <br />
+        and press the search button to see the results.<br /><br />
+        Optionally enter your search terms.
+    </h4>
+    <span class="glyphicon glyphicon-search"></span>
+</div>
+
+<div class="text-center" ng-if="vm.items.length > 0">
+    <hr/>
+    <uib-pagination total-items="vm.totalCount" ng-model="vm.page"
+                    ng-change="vm.pageChanged()" max-size="5"
+                    force-ellipses="true" rotate="true">
+    </uib-pagination>
+</div>
+
+<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+
+<script type="text/ng-template" id="modalImage.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ modalVm.animationTitle }}</h3>
+    </div>
+    <div class="modal-body">
+        <img src="{{ modalVm.animationUrl }}" width="565px">
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modalVm.close()">Close</button>
+    </div>
+</script>

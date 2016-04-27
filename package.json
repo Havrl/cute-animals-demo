@@ -1,10 +1,10 @@
 {
-  "name": "lineman-angular-boilerplate",
-  "title": "lineman-angular-boilerplate",
+  "name": "cuteanimaldemo",
+  "title": "cute animal demo",
   "version": "0.0.1",
   "private": true,
   "author": {
-    "name": "Havrl"
+    "name": "Sergey Kosik"
   },
   "devDependencies": {
     "coffee-script": "~1.6.3",
@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "lineman run",
-    "test": "lineman spec-ci"
+    "test": "lineman spec-ci",
+    "production": "lineman clean build && npm i express@3 && node -e \"var e = require('express'), a = e(); a.use(e.static('dist/')); a.use(function(req, res) { res.sendfile('dist/index.html'); }); a.listen(process.env.PORT)\""
   }
 }

@@ -6,11 +6,11 @@
 
   /******** App Config ***********/
   var config = {
-    appErrorPrefix: '[MyApp Error] ', //Configure the exceptionHandler decorator
-    appTitle: 'MyApp',
+    appErrorPrefix: '[Cute Animals Error] ', //Configure the exceptionHandler decorator
+    appTitle: 'Cute Animals',
     version: '1.0.0',
-    returnUrl: '/',
-    apiUrl: ''
+    apiKey: 'dc6zaTOxFJmzC',
+    apiUrl: 'http://api.giphy.com/v1/gifs/search'
   };
   core.value('config', config);
 
@@ -31,7 +31,7 @@
 
     // Configure the common route provider
     routehelperConfigProvider.config.$routeProvider = $routeProvider;
-    routehelperConfigProvider.config.docTitle = 'MyApp ';
+    routehelperConfigProvider.config.docTitle = 'Cute Animals ';
     var resolveAlways = {
       ready: ['dataService', function (dataService) {
           return dataService.ready();
@@ -42,20 +42,5 @@
     // Configure the common exception handler
     exceptionConfigProvider.config.appErrorPrefix = config.appErrorPrefix;
   }
-
-  /********** App Run *************
-  core.run(appCoreRun);
-
-  appCoreRun.$inject = ['$rootScope'];
-
-  function appCoreRun($rootScope) {
-
-    $rootScope.navigate = navigate;
-
-    function navigate(url) {
-      $location.path(url);
-    }
-  }
-  */
 
 })();

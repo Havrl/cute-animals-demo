@@ -1,5 +1,49 @@
-// Main less file for your application.
-// Use `@import` to use other less files
-// relative to 'app/css' or 'vendor/css'.
+body {
+  padding-top: 60px;
+}
 
-//@import "global/font";
+.search-form {
+  margin-bottom: 15px;
+}
+
+.search-form-wrapper {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row-item {
+  &:hover {
+    background-color: honeydew;
+    cursor: pointer;
+  }
+}
+
+.no-items {
+  padding-top: 60px;
+  height: 200px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #cccccc;
+  }
+
+  span {
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 80px;
+    color: #eeeeee;
+  }
+}
+
+.table > tbody > tr {
+
+  td.image-cell {
+    width: 20%
+  }
+
+  td {
+    vertical-align: middle;
+    width: 40%;
+  }
+}

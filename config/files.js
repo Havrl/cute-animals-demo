@@ -27,10 +27,6 @@ module.exports = function(lineman) {
           paths: ["app/css/**/*.less", "vendor/css/**/*.css"]
         }
       }
-    },
-
-    webfonts: {
-      root: "fonts"
     }
   };
 };

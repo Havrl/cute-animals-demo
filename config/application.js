@@ -75,8 +75,7 @@ module.exports = function(lineman) {
         "globals": {
           "angular": false,
           "$": false,
-          "_": false,
-          "Base64": false
+          "_": false
         }
       }
     },

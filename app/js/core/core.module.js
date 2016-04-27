@@ -13,6 +13,6 @@
     /*
      * 3rd Party modules
      */
-    'ngStorage', 'mgcrea.ngStrap.alert', 'angularSpinner'
+    'angularSpinner', 'ui.bootstrap'
   ]);
 })();

@@ -8,40 +8,53 @@
       .provider('exceptionConfig', exceptionConfigProvider)
       .config(exceptionConfig);
 
-  // Must configure the service and set its
-  // events via the exceptionConfigProvider
+  /**
+   * Must configure the exception handling
+   * @return {[type]}
+   */
   function exceptionConfigProvider() {
     /* jshint validthis:true */
     this.config = {
-      // These are the properties we need to set
-      //appErrorPrefix: ''
+      appErrorPrefix: undefined
+    };
+
+    this.configure = function (appErrorPrefix) {
+      this.config.appErrorPrefix = appErrorPrefix;
     };
 
     this.$get = function() {
-      return {
-        config: this.config
-      };
+      return {config: this.config};
     };
   }
 
   exceptionConfig.$inject = ['$provide'];
 
-  // Configure by setting an optional string value for appErrorPrefix.
-  // Accessible via config.appErrorPrefix (via config value).
+  /**
+   * Configure by setting an optional string value for appErrorPrefix.
+   * Accessible via config.appErrorPrefix (via config value).
+   * @param  {[type]} $provide
+   * @return {[type]}
+   * @ngInject
+   */
   function exceptionConfig($provide) {
     $provide.decorator('$exceptionHandler', extendExceptionHandler);
   }
 
-  extendExceptionHandler.$inject = ['$injector', '$delegate', 'exceptionConfig'];
+  extendExceptionHandler.$inject = ['$delegate', 'exceptionConfig', 'logger'];
 
-  // Extend the $exceptionHandler service to also display a toast.
-  function extendExceptionHandler($injector, $delegate, exceptionConfig) {
-    var appErrorPrefix = exceptionConfig.config.appErrorPrefix || '';
+  /**
+   * Extend the $exceptionHandler service to also display a toast.
+   * @param  {Object} $delegate
+   * @param  {Object} exceptionHandler
+   * @param  {Object} logger
+   * @return {Function} the decorated $exceptionHandler service
+   */
+  function extendExceptionHandler($delegate, exceptionConfig, logger) {
     return function(exception, cause) {
-      $delegate(exception, cause);
+      var appErrorPrefix = exceptionConfig.config.appErrorPrefix || '';
       var errorData = {exception: exception, cause: cause};
-      var msg = appErrorPrefix + exception.message;
-
+      exception.message = appErrorPrefix + exception.message;
+      $delegate(exception, cause);
       /**
        * Could add the error to a service's collection,
        * add errors to $rootScope, log errors to remote web server,
@@ -50,12 +63,8 @@
        *
        * @example
        *     throw { message: 'error message we added' };
-       *
        */
-
-      // use injector for logger DI as it is using rootScope and that's the only way to inject that to the provider
-      var logger = $injector.get('logger');
-      logger.error(msg, errorData);
+      logger.error(exception.message, errorData);
     };
   }
 })();
