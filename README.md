@@ -21,6 +21,12 @@ Or:
 4. Run `node server.js`
 5. Open your browser to localhost:8888
 
+# Deploy on Heroku
+1. `$ heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-nodejs`
+   `$ heroku config:set NPM_CONFIG_PRODUCTION=false`
+2. `$ git push heroku master`
+
+
 # Running Tests (no tests available for this demo)
 
 To run the unit tests:
