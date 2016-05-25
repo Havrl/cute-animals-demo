@@ -3,6 +3,9 @@ Cute animals SPA demo
 
 Build with Angular.js using lineman.js following Angular style guide: https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
+# Live Demo
+http://cute-animals.herokuapp.com/
+
 # Instructions
 1. `$ git clone git@github.com:Havrl/cute-animals-demo.git my-app`
 2. `$ cd my-app`
